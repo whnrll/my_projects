@@ -6,18 +6,17 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.hmdp.dto.Result;
 import com.hmdp.entity.Shop;
 import com.hmdp.service.IShopService;
-import com.hmdp.utils.SystemConstants;
+import com.hmdp.constant.SystemConstants;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
 /**
- * <p>
- * 前端控制器
- * </p>
+ * 描述：
  *
- * @author 虎哥
- * @since 2021-12-22
+ * @author xutao
+ * @date 2023-04-09 16:31:11
+ * @since 1.0.0
  */
 @RestController
 @RequestMapping("/shop")

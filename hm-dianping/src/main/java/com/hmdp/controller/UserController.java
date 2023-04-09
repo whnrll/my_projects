@@ -11,6 +11,7 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 /**
  * <p>
@@ -38,9 +39,9 @@ public class UserController {
      * 发送手机验证码
      */
     @PostMapping("code")
-    public Result sendCode(@RequestParam("phone") String phone) {
-        // TODO 发送短信验证码并保存验证码
-        return Result.ok();
+    public Result sendCode(@RequestParam("phone") String phone, HttpSession httpSession) {
+        // 发送短信验证码并保存验证码
+        return userService.sendCode(phone, httpSession);
     }
 
     /**
@@ -48,9 +49,9 @@ public class UserController {
      * @param loginForm 登录参数，包含手机号、验证码；或者手机号、密码
      */
     @PostMapping("/login")
-    public Result login(@RequestBody LoginFormDTO loginForm){
-        // TODO 实现登录功能
-        return Result.ok();
+    public Result login(@RequestBody LoginFormDTO loginForm, HttpSession httpSession){
+        // 实现登录功能
+        return userService.login(loginForm, httpSession);
     }
 
     /**
@@ -65,8 +66,7 @@ public class UserController {
 
     @GetMapping("/me")
     public Result me(){
-        // TODO 获取当前登录的用户并返回
-        return Result.ok();
+        return userService.me();
     }
 
     @GetMapping("/info/{id}")

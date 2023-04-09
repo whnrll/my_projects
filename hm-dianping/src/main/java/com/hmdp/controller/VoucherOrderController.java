@@ -6,12 +6,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * <p>
- *  前端控制器
- * </p>
+ * 描述：
  *
- * @author 虎哥
- * @since 2021-12-22
+ * @author xutao
+ * @date 2023-04-09 16:31:37
+ * @since 1.0.0
  */
 @RestController
 @RequestMapping("/voucher-order")

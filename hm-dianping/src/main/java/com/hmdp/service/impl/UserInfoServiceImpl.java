@@ -1,19 +1,22 @@
 package com.hmdp.service.impl;
 
+import org.springframework.stereotype.Service;
+
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.hmdp.entity.UserInfo;
 import com.hmdp.mapper.UserInfoMapper;
 import com.hmdp.service.IUserInfoService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import org.springframework.stereotype.Service;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
- * <p>
- *  服务实现类
- * </p>
+ * 描述：用户服务
  *
- * @author 虎哥
- * @since 2021-12-24
+ * @author xutao
+ * @date 2023-04-09 15:37:26
+ * @since 1.0.0
  */
+@Slf4j
 @Service
 public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo> implements IUserInfoService {
 
