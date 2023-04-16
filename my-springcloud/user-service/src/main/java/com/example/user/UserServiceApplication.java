@@ -1,4 +1,4 @@
-package org.example.user;
+package com.example.user;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;

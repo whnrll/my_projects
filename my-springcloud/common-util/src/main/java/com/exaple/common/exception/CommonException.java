@@ -1,6 +1,6 @@
 package com.exaple.common.exception;
 
-import com.exaple.common.enums.StatusCode;
+import com.exaple.common.enums.ResultCode;
 
 public class CommonException extends RuntimeException {
     private Integer code;
@@ -9,11 +9,11 @@ public class CommonException extends RuntimeException {
 
     public CommonException(String message) {
         super(message);
-        this.code = StatusCode.FAILED.getCode();
+        this.code = ResultCode.FAILED.getCode();
         this.message = message;
     }
 
-    public CommonException(StatusCode statusCode) {
+    public CommonException(ResultCode statusCode) {
         super(statusCode.getMessage());
         this.code = statusCode.getCode();
         this.message = statusCode.getMessage();

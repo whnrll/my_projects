@@ -1,0 +1,2 @@
+### 查询用户
+GET http://localhost:8000/users/manager/ok

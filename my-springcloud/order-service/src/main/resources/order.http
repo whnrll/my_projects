@@ -1,0 +1,26 @@
+### 测试
+GET http://localhost:8001/orders/manager/ok
+
+### 测试参数校验
+GET http://localhost:8001/orders/valid/single?id=1&name=@@@
+
+### 参数校验-json
+POST http://localhost:8001/orders/valid/json
+Content-Type: application/json
+
+{
+  "id": 0,
+  "name": "",
+  "goodIds": [
+    ""
+  ],
+  "address": {
+    "id": 0,
+    "userId": "",
+    "detail": ""
+  }
+}
+
+
+### 查询订单
+GET http://localhost:8001/orders/manager/query/-1

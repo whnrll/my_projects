@@ -2,7 +2,7 @@ package com.exaple.common.vo;
 
 import java.io.Serializable;
 
-import com.exaple.common.enums.StatusCode;
+import com.exaple.common.enums.ResultCode;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,7 +22,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CommonResponse<T> implements Serializable {
+public class ResultResponse<T> implements Serializable {
 
     private static final long serialVersionUID = 8159895465918935084L;
 
@@ -35,17 +35,17 @@ public class CommonResponse<T> implements Serializable {
     /** 泛型响应数据 */
     private T data;
 
-    public CommonResponse(Integer code, String message) {
+    public ResultResponse(Integer code, String message) {
         this.code = code;
         this.message = message;
     }
 
-    public CommonResponse(StatusCode statusCode) {
+    public ResultResponse(ResultCode statusCode) {
         this.code = statusCode.getCode();
         this.message = statusCode.getMessage();
     }
 
-    public CommonResponse(StatusCode statusCode, T data) {
+    public ResultResponse(ResultCode statusCode, T data) {
         this.code = statusCode.getCode();
         this.message = statusCode.getMessage();
         this.data = data;
@@ -55,10 +55,10 @@ public class CommonResponse<T> implements Serializable {
      * 描述：成功，没有数据
      * {"code":0, "message":"success"}
      *
-     * @return {@link CommonResponse }
+     * @return {@link ResultResponse }
      */
-    public static CommonResponse success() {
-        return new CommonResponse(StatusCode.SUCCESS);
+    public static ResultResponse success() {
+        return new ResultResponse(ResultCode.SUCCESS);
     }
 
     /**
@@ -66,10 +66,10 @@ public class CommonResponse<T> implements Serializable {
      * {"code":0, "message":"success", "data":{}}
      *
      * @param data 数据
-     * @return {@link CommonResponse }<{@link T }>
+     * @return {@link ResultResponse }<{@link T }>
      */
-    public static <T> CommonResponse<T> success(T data) {
-        return new CommonResponse(StatusCode.SUCCESS, data);
+    public static <T> ResultResponse<T> success(T data) {
+        return new ResultResponse(ResultCode.SUCCESS, data);
     }
 
     /**
@@ -77,10 +77,10 @@ public class CommonResponse<T> implements Serializable {
      * {"code":xxx, "message":"xxx"}
      *
      * @param statusCode
-     * @return {@link CommonResponse }
+     * @return {@link ResultResponse }
      */
-    public static CommonResponse failed(StatusCode statusCode) {
-        return new CommonResponse(statusCode);
+    public static ResultResponse failure(ResultCode statusCode) {
+        return new ResultResponse(statusCode);
     }
 
     /**
@@ -89,9 +89,9 @@ public class CommonResponse<T> implements Serializable {
      *
      * @param statusCode statusCode
      * @param data data
-     * @return {@link CommonResponse }<{@link T }>
+     * @return {@link ResultResponse }<{@link T }>
      */
-    public static <T> CommonResponse<T> failed(StatusCode statusCode, T data) {
-        return new CommonResponse(statusCode, data);
+    public static <T> ResultResponse<T> failure(ResultCode statusCode, T data) {
+        return new ResultResponse(statusCode, data);
     }
 }

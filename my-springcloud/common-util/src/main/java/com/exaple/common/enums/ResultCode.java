@@ -7,7 +7,7 @@ package com.exaple.common.enums;
  * @date 2023-04-16 18:17:50
  * @since 1.0.0
  */
-public enum StatusCode {
+public enum ResultCode {
     FAILED(-1, "failed"),
     SUCCESS(0, "success"),
 
@@ -16,7 +16,7 @@ public enum StatusCode {
     SYSTEM_ERROR(500, "system abnormality, please contact the administrator for handling!"),
     DATABASE_ERROR(600, "data access error!"),
 
-    PARAM_INVALID(700, "Parameter verification failed!"),
+    PARAMS_IS_INVALID(700, "Parameter verification failed!"),
 
 
 
@@ -26,7 +26,7 @@ public enum StatusCode {
 
     private final String message;
 
-    StatusCode(int code, String message) {
+    ResultCode(int code, String message) {
         this.code = code;
         this.message = message;
     }

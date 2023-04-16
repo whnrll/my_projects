@@ -1,6 +1,6 @@
-package org.example.user.service.impl;
+package com.example.user.service.impl;
 
-import org.example.user.service.IUserManagerService;
+import com.example.user.service.IUserManagerService;
 import org.springframework.stereotype.Service;
 
 @Service
