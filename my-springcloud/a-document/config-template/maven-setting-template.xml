@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+    <!--本地仓库的路径-->
+    <!--<localRepository>~/.m2/repository</localRepository>-->
+
+    <!--maven是否需要和用户交互以获得输入 默认为true-->
+    <interactiveMode>true</interactiveMode>
+
+    <!--是否需要plugin-registry.xml文件来管理插件版本-->
+    <usePluginRegistry>false</usePluginRegistry>
+
+    <!--是否需要离线模式下运行-->
+    <offline>false</offline>
+
+    <pluginGroups>
+        <!-- 插件组织 -->
+        <!-- <pluginGroup>com.your.plugins</pluginGroup> -->
+    </pluginGroups>
+
+    <!--代理服务器-->
+    <proxies>
+        <!-- <proxy>
+            <active>false</active>
+            <id>kkk</id>
+            <host>192.168.7.17</host>
+            <port>8080</port>
+            <protocol>http</protocol>
+            <username>xxx</username>
+            <password>xxx</password>
+        </proxy> -->
+    </proxies>
+
+    <servers>
+        <!--打包上传到私服时，设置私服的鉴权信息-->
+        <!-- <server> -->
+        <!-- server 的 id 不是用户登录的 id 该 id 与 distributionManager 中 repository 元素的 id 相匹配-->
+        <!-- <id>maven-releases</id> -->
+        <!--用户名密码-->
+        <!-- <username>admin</username>
+        <password>xxx</password> -->
+        <!--鉴权时的私钥位置-->
+        <!--<privateKey>~/.ssh/id_dsa</privateKey>-->
+        <!--<passphrase>私钥密码</passphrase>-->
+
+        <!--文件被创建时的权限-->
+        <!-- <filePermissions>664</filePermissions> -->
+        <!--目录被创建时的权限-->
+        <!-- <directoryPermissions>775</directoryPermissions> -->
+        <!-- </server> -->
+        <!-- <server>
+            <id>maven-snapshots</id>
+            <username>admin</username>
+            <password>Meifute@12asw1</password>
+        </server> -->
+    </servers>
+
+    <mirrors>
+        <!-- 被镜像的服务器的id, 必须与 repository 节点设置的 ID 一致
+         | mirrorOf 的配置语法:
+          | central 表示代替官方的中央库
+          | * 表示所有仓库都是用该镜像
+          | ! 表示该仓库除外
+         | 示例：
+          | （1）<mirrorOf>m1,m2</mirrorOf> 表示仓库m1,m2使用该镜像
+          | （2）<mirrorOf>external:*</mirrorOf>  表示除 localhost、使用 file:// 协议外的所有远程仓库使用该镜像
+          | （3）<mirrorOf>*,!m1</mirrorOf>  表示除了m1之外的所有远程仓库使用该镜像
+         |-->
+
+        <!-- mirror 可以拦截对远程仓库的请求 , 改变对目标仓库的下载地址-->
+        <!-- 配置多个 mirror，当 mirrorOf 的值相同时，当且仅当上一个远程仓库连接失败才会访问下一个远程仓库，连接成功，即使没有获取想要的jar包，也不会访问下一个远程仓库 -->
+        <mirror>
+            <!--该镜像的唯一标识-->
+            <id>alicentral</id>
+            <!--该镜像服务器的id-->
+            <mirrorOf>central</mirrorOf>
+            <!--镜像名称-->
+            <name>阿里云公共仓库</name>
+            <url>https://maven.aliyun.com/repository/central</url>
+        </mirror>
+        <mirror>
+            <id>aliyun-public</id>
+            <mirrorOf>aliyun-public</mirrorOf>
+            <name>阿里云公共仓库</name>
+            <url>https://maven.aliyun.com/repository/public</url>
+        </mirror>
+        <mirror>
+            <id>aliyun-google</id>
+            <mirrorOf>google</mirrorOf>
+            <name>阿里云google仓库</name>
+            <url>https://maven.aliyun.com/repository/google</url>
+        </mirror>
+        <mirror>
+            <id>aliyun-gradle</id>
+            <mirrorOf>gradle-plugin</mirrorOf>
+            <name>阿里云gradle仓库</name>
+            <url>https://maven.aliyun.com/repository/gradle-plugin</url>
+        </mirror>
+        <mirror>
+            <id>aliyun-spring</id>
+            <mirrorOf>spring</mirrorOf>
+            <name>阿里云spring仓库</name>
+            <url>https://maven.aliyun.com/repository/spring</url>
+        </mirror>
+        <mirror>
+            <id>aliyun-spring-plugin</id>
+            <mirrorOf>spring-plugin</mirrorOf>
+            <name>阿里云spring-plugin仓库</name>
+            <url>https://maven.aliyun.com/repository/spring-plugin</url>
+        </mirror>
+        <mirror>
+            <id>aliyun-grails-core</id>
+            <mirrorOf>grails-core</mirrorOf>
+            <name>阿里云grails-core仓库</name>
+            <url>https://maven.aliyun.com/repository/grails-core</url>
+        </mirror>
+        <mirror>
+            <id>aliyun-apache-snapshots</id>
+            <mirrorOf>apache snapshots</mirrorOf>
+            <name>阿里云apache-snapshots仓库</name>
+            <url>https://maven.aliyun.com/repository/apache-snapshots</url>
+        </mirror>
+
+        <mirror>
+            <id>maven2</id>
+            <mirrorOf>*</mirrorOf>
+            <name>官方中央仓库</name>
+            <url>http://repo2.maven.org/maven2/</url>
+        </mirror>
+        <mirror>
+            <id>repo2</id>
+            <mirrorOf>*</mirrorOf>
+            <name>m5</name>
+            <url>http://repo2.maven.org/maven2/</url>
+        </mirror>
+        <mirror>
+            <id>ibiblio</id>
+            <mirrorOf>*</mirrorOf>
+            <name>m6</name>
+            <url>http://mirrors.ibiblio.org/pub/mirrors/maven2/</url>
+        </mirror>
+        <mirror>
+            <id>jboss-public-repository-group</id>
+            <mirrorOf>*</mirrorOf>
+            <name>m7</name>
+            <url>http://repository.jboss.org/nexus/content/groups/public</url>
+        </mirror>
+        <mirror>
+            <id>JBossJBPM</id>
+            <mirrorOf>*</mirrorOf>
+            <name>m8</name>
+            <url>https://repository.jboss.org/nexus/content/repositories/releases/</url>
+        </mirror>
+    </mirrors>
+
+
+    <profiles>
+        <!-- settings文件种的profile一共包含5个元素，作用分别如下：
+          1. id：唯一标识一个profile
+          2. activation：profile 激活条件配置，支持多种激活条件。
+          另外两种激活方式:
+            （1）settings文件种的activeProfile元素（最后一个元素）指定porfile激活
+            （2）命令行通过-P和逗号分隔的列表来激活，如mvn clean package -P profile-id
+          3. properties：全局变量设置，一个常见用法就是在此设置jdk版本和编码方式，如下面id为jdk-1.8的profile
+          4. repositories：构件远程仓库列表
+          5. pluginRepositories：插件的远程仓库配置
+        -->
+
+        <!-- 配置 maven 的 jdk 版本 -->
+        <profile>
+            <id>jdk-1.8</id>
+            <!-- 下面两个激活项任意一个满足都可激活 -->
+            <activation>
+                <!-- 该profile是否默认激活 -->
+                <activeByDefault>true</activeByDefault>
+                <!-- 通过jdk版本前缀来激活当前profile。
+                     此处当检测到使用的jdk版本是1.8.xxx，则当前profile被激活，!1.8表示激活所有不是以1.8开头的jdk版本
+                  -->
+                <jdk>1.8</jdk>
+            </activation>
+            <properties>
+                <maven.compiler.source>1.8</maven.compiler.source>
+                <maven.compiler.target>1.8</maven.compiler.target>
+                <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
+            </properties>
+        </profile>
+
+        <!-- 配置阿里云Maven -->
+        <profile>
+            <id>maven-aliyun</id>
+            <repositories>
+                <repository>
+                    <!-- 唯一标识远程仓库 -->
+                    <id>aliyun</id>
+                    <name>aliyun maven</name>
+                    <url>https://maven.aliyun.com/repository/public</url>
+                    <!-- 远程仓库里的发布版本设置 -->
+                    <releases>
+                        <!-- 是否使用远程仓库的发布版本 -->
+                        <enabled>true</enabled>
+                        <!-- 更新远程仓库发布版本的频率:always-一直,daily-每日（默认）,interval:X-X分钟,never-从不 -->
+                        <updatePolicy>daily</updatePolicy>
+                        <!-- maven验证构件检验文件失败时的处理方式:ignore-忽略,fail-失败,warn-警告 -->
+                        <checksumPolicy>warn</checksumPolicy>
+                    </releases>
+                    <!-- 远程仓库里的快照版本设置 -->
+                    <snapshots>
+                        <enabled>false</enabled>
+                        <updatePolicy>always</updatePolicy>
+                    </snapshots>
+                </repository>
+            </repositories>
+        </profile>
+
+        <!-- 配置私服Maven -->
+        <profile>
+            <id>maven-nexus</id>
+            <activation>
+                <!--是否默认激活-->
+                <!-- <activeByDefault>false</activeByDefault> -->
+
+                <!--当匹配的jdk被检测到 profile激活-->
+                <!-- <jdk>1.8</jdk> -->
+
+                <!--匹配到操作系统-->
+                <!--<os>
+                    <name>xxx</name>
+                    <family>Windows</family>
+                    <arch>x86</arch>
+                    <version>xxx</version>
+                </os>-->
+
+                <!--当maven检测到属性值匹配 profile就激活  值可以在pom中通过${name}引用-->
+                <!--<property>
+                    <name>mavenVersion</name>
+                    <value>3.5.4</value>
+                </property>-->
+
+                <!--文件匹配激活-->
+                <!-- <file> -->
+                <!--如果文件存在就激活-->
+                <!-- <exists>xxx/xxx</exists> -->
+                <!--如果文件不存在就激活-->
+                <!-- <missing>xxx/xxxe</missing> -->
+                <!-- </file> -->
+            </activation>
+            <!--扩展属性列表，全局变量设置-->
+            <properties>
+                <!--如果该profile被激活，则可以在pom.xml中使用${user.install}-->
+                <user.install>${user.home}/our-project</user.install>
+            </properties>
+            <repositories>
+                <repository>
+                    <!-- 对于私服,需要配置用户密码,故此id必须与上面servers中声明的id一样 -->
+                    <id>maven-releases</id>
+                    <name>releases</name>
+                    <url>http://localhost:8081/repository/maven-releases/</url>
+                    <releases><enabled>true</enabled></releases>
+                    <snapshots><enabled>true</enabled></snapshots>
+                </repository>
+                <repository>
+                    <id>maven-snapshots</id>
+                    <name>snapshots</name>
+                    <url>http://localhost:8081/repository/maven-snapshots/</url>
+                    <releases><enabled>true</enabled></releases>
+                    <snapshots><enabled>true</enabled></snapshots>
+                </repository>
+            </repositories>
+            <!--插件仓库列表-->
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>x</id>
+                    <name>name</name>
+                    <url>https://xxxx.cccc</url>
+                    <releases>
+                        <enabled>true</enabled>
+                        <checksumPolicy>fail</checksumPolicy>
+                        <updatePolicy>daily</updatePolicy>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                        <checksumPolicy>fail</checksumPolicy>
+                        <updatePolicy>daily</updatePolicy>
+                    </snapshots>
+                    <layout>default</layout>
+                </pluginRepository>
+            </pluginRepositories>
+        </profile>
+
+    </profiles>
+
+    <!-- 手动激活profile -->
+    <activeProfiles>
+        <!-- activeProfile的属性值就是上面profiles列表种profile的id，若不存在则忽视 -->
+        <activeProfile>maven-aliyun</activeProfile>
+
+        <!-- jdk-1.8已经自动激活，故此处无需显示指定激活 -->
+        <!--<activeProfile>jdk-1.8</activeProfile>-->
+
+        <!-- <activeProfile>maven-nexus</activeProfile> -->
+    </activeProfiles>
+</settings>
+
