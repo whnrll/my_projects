@@ -1,6 +1,8 @@
 package com.example.web.interceptor;
 
+import com.exaple.common.enums.StatusCode;
 import com.exaple.common.exception.BusinessException;
+import com.exaple.common.util.ExceptionUtil;
 import com.exaple.common.vo.CommonResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -19,16 +21,9 @@ import javax.servlet.http.HttpServletRequest;
 @RestControllerAdvice
 public class GlobalExceptionAdvice {
 
-    @ExceptionHandler(value = BusinessException.class)
-    public CommonResponse<String> handlerBusinessException(
-            HttpServletRequest req, Exception ex
-    ) {
-
-        CommonResponse<String> response = new CommonResponse<>(
-                -1, "business error"
-        );
-        response.setData(ex.getMessage());
-        log.error("commerce service has error: [{}]", ex.getMessage(), ex);
-        return response;
+    @ExceptionHandler(value = Exception.class)
+    public CommonResponse<String> Exception(Exception e) {
+        ExceptionUtil.printStack(e, log, "system error!");
+        return CommonResponse.failed(StatusCode.SYSTEM_ERROR, e.getMessage());
     }
 }
