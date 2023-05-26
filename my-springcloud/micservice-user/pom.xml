@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>order-service</artifactId>
+    <artifactId>micservice-user</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -36,6 +36,8 @@
             <scope>test</scope>
         </dependency>
 
+
+
     </dependencies>
 
     <build>
@@ -55,7 +57,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${spring-boot.version}</version>
                 <configuration>
-                    <mainClass>com.example.user.OrderServiceApplication</mainClass>
+                    <mainClass>com.example.user.UserServiceApplication</mainClass>
                     <skip>true</skip>
                     <excludes>
                         <exclude>
@@ -75,4 +77,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>

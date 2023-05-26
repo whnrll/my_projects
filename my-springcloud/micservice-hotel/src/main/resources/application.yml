@@ -1,0 +1,30 @@
+server:
+  servlet:
+    context-path: /hotel
+  port: 8003
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+  type-aliases-package: com.example.mybatisplus.entity
+
+spring:
+  application:
+    name: micservice-hotel
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/db_my_springcloud?useSSL=false&serverTimezone=UTC&autoReconnect=true&useSSL=false&characterEncoding=utf8
+    username: root
+    password: wh001225
+    type: com.zaxxer.hikari.HikariDataSource
+    # 连接池
+    hikari:
+      maximum-pool-size: 8
+      minimum-idle: 4
+      idle-timeout: 30000
+      connection-timeout: 30000
+      max-lifetime: 45000
+      auto-commit: true
+      pool-name: hikari-order
+    jackson:
+      default-property-inclusion: non_null # JSON处理时忽略非空字段
