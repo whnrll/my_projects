@@ -1,0 +1,67 @@
+<assembly>
+    <id>assembly</id>
+
+    <formats>
+        <format>zip</format>
+    </formats>
+
+    <includeBaseDirectory>true</includeBaseDirectory>
+
+    <fileSets>
+        <!-- 指定单个或者多个文件的打包方式 -->
+        <fileSet>
+            <directory>${basedir}/deploy/bin</directory>
+            <outputDirectory>bin</outputDirectory>
+            <includes>
+                <include>*.bat</include>
+            </includes>
+            <fileMode>0755</fileMode>
+        </fileSet>
+
+        <fileSet>
+            <directory>src/main/resources</directory>
+            <outputDirectory>/</outputDirectory>
+            <includes>
+                <include>*.properties</include>
+                <include>*.xml</include>
+            </includes>
+            <fileMode>0600</fileMode>
+        </fileSet>
+
+        <!--<fileSet>-->
+            <!--<directory>target/classes/</directory>-->
+            <!--<includes>-->
+                <!--<include>*.properties</include>-->
+                <!--<include>*.xml</include>-->
+                <!--<include>*.txt</include>-->
+            <!--</includes>-->
+            <!--<outputDirectory>conf</outputDirectory>-->
+        <!--</fileSet>-->
+    </fileSets>
+
+    <files>
+        <!-- 指定单个文件的打包方式 -->
+        <file>
+            <source>target/${project.artifactId}-${project.version}.jar</source>
+            <outputDirectory>/</outputDirectory>
+            <destName>${project.artifactId}.jar</destName>
+        </file>
+
+        <file>
+            <source>version</source>
+            <outputDirectory>/</outputDirectory>
+            <fileMode>0600</fileMode>
+        </file>
+    </files>
+
+    <dependencySets>
+        <dependencySet><!-- 把当前工程的所有依赖都添加到 lib包里 -->
+            <unpack>false</unpack><!-- false表示将依赖以原来的JAR形式打包，true则表示将依赖解成*.class文件的目录结构打包 -->
+            <scope>runtime</scope><!-- 表示符合哪个作用范围的依赖会被打包进去。compile与provided都不用管，一般是写runtime -->
+            <outputDirectory>lib</outputDirectory>
+        </dependencySet>
+
+        <!-- 排除工程自身生成的jar -->
+        <useProjectArtifact>false</useProjectArtifact>
+    </dependencySets>
+</assembly>

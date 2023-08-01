@@ -1,0 +1,10 @@
+### swagger 测试
+POST http://localhost:8080/swagger/print?message=xxx
+Content-Type: application/json
+
+{
+  "message": "xxxx"
+}
+
+###
+GET http://localhost:8080/swagger-ui/index.html
