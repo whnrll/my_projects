@@ -1,0 +1,18 @@
+server:
+  port: 9001
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/skill
+    username: root
+    password: jianjiang
+  redis:
+    host: localhost
+    port: 6379
+  cloud:
+    nacos:
+      discovery:
+        service: product-serv
+      server-addr: localhost:8848
+    sentinel:
+      transport:
+        dashboard: localhost:8080

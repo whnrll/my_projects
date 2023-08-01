@@ -1,0 +1,35 @@
+server:
+  port: 9002
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/orderdb
+    username: root
+    password: jianjiang
+  cloud:
+    nacos:
+      server-addr: localhost:8848
+      discovery:
+        service: order-serv
+        group: SEATA_GROUP
+  application:
+    name: order-serv
+seata:
+  enabled: true
+  tx-service-group: order-service
+  config:
+    type: nacos
+    nacos:
+      namespace: public
+      serverAddr: 127.0.0.1:8848
+      group: SEATA_GROUP
+      userName: "nacos"
+      password: "nacos"
+  registry:
+    type: nacos
+    nacos:
+      application: seata-server
+      serverAddr: 127.0.0.1:8848
+      group: SEATA_GROUP
+      namespace: public
+      userName: "nacos"
+      password: "nacos"
