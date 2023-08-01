@@ -27,6 +27,9 @@
         <module>micservice-user</module>
         <module>micservice-hotel</module>
         <module>micservice-order</module>
+        <module>my-mq</module>
+        <module>my-tools</module>
+        <module>my-tools/markdown-to-html</module>
     </modules>
 
     <properties>
