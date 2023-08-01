@@ -1,0 +1,35 @@
+
+server:
+  port: 9090
+spring:
+  application:
+    # 应用名字
+    name: gateway
+  cloud:
+    nacos:
+      discovery:
+        # Nacos服务地址
+        server-addr: 192.168.66.100:8848
+
+    gateway:
+      routes:
+        # 路由名字
+        - id: payment
+          #目标地址
+          uri: lb://payment-provider-sentinel
+          #断言
+          predicates:
+            - Path=/payment/*
+      default-filters:
+        - AddRequestHeader=origin,gateway
+
+
+
+
+
+
+
+logging:
+  pattern:
+    #日志打印格式
+    console: logging.pattern.console=%d{MM/dd HH:mm:ss.SSS} %clr(%-5level) ---  [%-15thread] %cyan(%-50logger{50}):%msg%n

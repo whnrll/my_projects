@@ -1,0 +1,25 @@
+server:
+  port: 9090
+spring:
+  application:
+    name: tx-msg-orders
+  datasource:
+    url: jdbc:mysql://192.168.66.100:3306/tx-msg-orders?useUnicode=true&characterEncoding=UTF-8&useOldAliasMetadataBehavior=true&autoReconnect=true&failOverReadOnly=false&useSSL=false
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+
+################ RocketMQ 配置 ##########
+rocketmq:
+  name-server: 192.168.66.100:9876
+  producer:
+    group: order-group
+
+
+
+
+
+logging:
+  pattern:
+    console: logging.pattern.console=%d{MM/dd HH:mm:ss.SSS} %clr(%-5level) ---  [%-15thread] %cyan(%-50logger{50}):%msg%n

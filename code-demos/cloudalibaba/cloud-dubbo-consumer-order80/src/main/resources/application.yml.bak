@@ -1,0 +1,43 @@
+server:
+  port: 80
+
+spring:
+  main:
+    allow-circular-references: true
+    allow-bean-definition-overriding: true
+  application:
+    # 应用名
+    name: order-consumer-dubbo
+  cloud:
+    nacos:
+      discovery:
+        # Nacos服务地址
+        server-addr: 192.168.66.100:8848
+
+dubbo:
+  cloud:
+    # 订阅服务的服务名 *订阅所有服务 想要订阅多个  ,
+    subscribed-services: "*"
+  registry:
+    #注册地址
+    address: nacos://192.168.66.100:8848
+    timeout: 10000
+  protocol:
+    # Dubbo服务暴露的协议的配置 dubbo
+    name: dubbo
+    # 端口从20880开始 自增
+    port: -1
+
+
+
+
+
+
+
+
+
+
+logging:
+  pattern:
+    #日志打印格式
+    console: logging.pattern.console=%d{MM/dd HH:mm:ss.SSS} %clr(%-5level) ---  [%-15thread] %cyan(%-50logger{50}):%msg%n

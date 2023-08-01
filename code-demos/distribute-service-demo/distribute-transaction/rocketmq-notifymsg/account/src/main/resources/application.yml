@@ -1,0 +1,36 @@
+server:
+  port: 7070
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.66.100:8848
+  application:
+    name: account
+  datasource:
+    url: jdbc:mysql://192.168.66.100:3306/tx-notifymsg-account?useUnicode=true&characterEncoding=UTF-8&useOldAliasMetadataBehavior=true&autoReconnect=true&failOverReadOnly=false&useSSL=false
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+
+################ RocketMQ 配置 ##########
+rocketmq:
+  name-server: 192.168.66.100:9876
+  producer:
+    group: payment-group
+
+
+
+
+
+
+
+
+
+
+
+
+logging:
+  pattern:
+    console: logging.pattern.console=%d{MM/dd HH:mm:ss.SSS} %clr(%-5level) ---  [%-15thread] %cyan(%-50logger{50}):%msg%n

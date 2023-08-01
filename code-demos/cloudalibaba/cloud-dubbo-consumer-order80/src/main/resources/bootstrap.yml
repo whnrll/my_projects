@@ -1,0 +1,22 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+    allow-circular-references: true
+  application:
+    name: order-consumer-dubbo
+  cloud:
+    nacos:
+      config:
+        # Nacos服务器地址
+        server-addr: 192.168.66.100:8848
+        # 命名空间   不指定命名空间默认 public   指定命名空间 UUID
+        namespace: 27336f68-2ad2-4124-9ae4-e6db40cb2b6a
+        # 如果不指定就是默认 DEFAULT_GROUP  如果指定
+        group: DEFAULT_GROUP
+        # 文件名  spring-application-name
+        prefix: ${spring.application.name}
+        #后缀
+        file-extension: yaml
+  profiles:
+    # 设置环境
+    active:  dev

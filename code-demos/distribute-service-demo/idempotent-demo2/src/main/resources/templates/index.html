@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="text-align: center">
+
+<div>
+    <table border="1" align="center">
+        <tr>
+            <th>id</th>
+            <th>名字</th>
+            <th>年纪</th>
+            <th>操作</th>
+        </tr>
+        <tr th:each="u:${users}">
+            <td th:text="${u.id}"></td>
+            <td th:text="${u.name}"></td>
+            <td th:text="${u.age}"></td>
+            <td><a th:href="@{/user/findById(id=${u.id})}">更新</a></td>
+        </tr>
+    </table>
+
+
+    <a href="/user/toadduser">注册用户</a>
+</div>
+
+</body>
+</html>

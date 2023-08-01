@@ -1,0 +1,15 @@
+
+server:
+  port: 8001
+spring:
+  application:
+    name: payment-provider
+  cloud:
+    nacos:
+      discovery:
+        # Nacos服务地址
+        server-addr: 192.168.66.100:8848
+logging:
+  pattern:
+    #日志打印格式
+    console: logging.pattern.console=%d{MM/dd HH:mm:ss.SSS} %clr(%-5level) ---  [%-15thread] %cyan(%-50logger{50}):%msg%n

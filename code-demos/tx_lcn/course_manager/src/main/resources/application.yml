@@ -1,0 +1,26 @@
+server:
+  port: 9002
+spring:
+  application:
+    name: lcn-course-manager
+  data:
+    mongodb:
+      host: 192.168.89.141
+      username: root
+      password: root
+      database: lcn
+      authentication-database: admin
+      port: 27017
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/lcn-class?serverTimezone=GMT%2B8
+    username: root
+    password: root
+eureka:
+  client:
+    service-url:
+      defaultZone:
+        - http://localhost:8761/eureka/
+tx-lcn:
+  client:
+    manager-address: 127.0.0.1:8070

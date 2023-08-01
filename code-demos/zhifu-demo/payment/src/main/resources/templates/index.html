@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="qrcode" style="width: 100px;height: 100px;margin-top: 15px">
+
+</div>
+
+
+</body>
+<script type="text/javascript" src="//cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="//static.runoob.com/assets/qrcode/qrcode.min.js"></script>
+
+<script>
+
+    new QRCode(document.getElementById("qrcode"),{
+        text:"https://qr.alipay.com/bax03608rjdrnaio2koi0045",
+        width: 100,
+        height: 100
+    })
+
+
+
+</script>
+
+
+</html>

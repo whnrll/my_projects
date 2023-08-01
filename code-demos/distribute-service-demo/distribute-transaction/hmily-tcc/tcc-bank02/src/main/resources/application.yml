@@ -1,0 +1,26 @@
+server:
+  port: 6005
+spring:
+  datasource:
+    driver-class-name:  com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.66.100:3306/tx-tcc-bank02?useUnicode=true&characterEncoding=utf8
+    username: root
+    password: 123456
+
+dubbo:
+  scan:
+    base-packages: com.itbaizhan.service
+  application:
+    name: tx-tcc-bank02
+  registry:
+    address: zookeeper://localhost:2181
+  protocol:
+    name: dubbo
+    port: 12345
+
+
+
+
+logging:
+  pattern:
+    console: logging.pattern.console=%d{MM/dd HH:mm:ss.SSS} %clr(%-5level) ---  [%-15thread] %cyan(%-50logger{50}):%msg%n

@@ -1,0 +1,35 @@
+
+server:
+  port: 80
+spring:
+  application:
+    # 应用名字
+    name: order-consumer-openfeign
+  cloud:
+    sentinel:
+      transport:
+        # Sentinel控制台地址
+        dashboard: 192.168.66.100:8888
+        # sentnel api端口号 默认 8719
+        port: 8719
+    nacos:
+      discovery:
+        # Nacos服务地址
+        server-addr: 192.168.66.100:8848
+logging:
+  pattern:
+    #日志打印格式
+    console: logging.pattern.console=%d{MM/dd HH:mm:ss.SSS} %clr(%-5level) ---  [%-15thread] %cyan(%-50logger{50}):%msg%n
+
+
+feign:
+  sentinel:
+    # 开启feign 对sentinel支持
+    enabled: true
+  client:
+    config:
+      default:
+        # 网络连接 阶段超时间
+        connectTimeout: 1000
+        # 服务远程调用响应超时时间
+        readTimeout: 2000

@@ -1,0 +1,40 @@
+
+server:
+  port: 8001
+spring:
+  application:
+    name: payment-provider-sentinel
+  cloud:
+    nacos:
+      discovery:
+        # Nacos服务地址
+        server-addr: 192.168.66.100:8848
+    sentinel:
+      transport:
+        # Sentinel控制台地址
+        dashboard: localhost:8080
+        # sentnel api端口号 默认 8719
+        port: 8719
+      web-context-unify: false
+      datasource:
+        # 数据库源key
+        geekbang-flow:
+          # 指定当前数据源是Nacos
+          nacos:
+            # 设置Nacos的连接地址，命名空间和GroupID
+            server-addr: 192.168.66.100:8848
+            # Nacos 命名空间
+            namespace: 27336f68-2ad2-4124-9ae4-e6db40cb2b6a
+            groupId: SENTINEL_GROUP
+            # 设置Nacos中配置⽂件的命名规则
+            dataId: ${spring.application.name}-flow-rules
+            # 必填的重要字段，指定当前规则类型是"限流"
+            rule-type: flow
+
+
+
+
+logging:
+  pattern:
+    #日志打印格式
+    console: logging.pattern.console=%d{MM/dd HH:mm:ss.SSS} %clr(%-5level) ---  [%-15thread] %cyan(%-50logger{50}):%msg%n
