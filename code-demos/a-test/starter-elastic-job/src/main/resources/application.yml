@@ -1,5 +1,0 @@
-elastic:
-  zookeeper:
-    enable: true
-    namespace: my-elastic-job
-    server-lists: localhost:2181,localhost:2182
