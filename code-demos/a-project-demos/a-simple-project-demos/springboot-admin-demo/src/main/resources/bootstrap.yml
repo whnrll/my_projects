@@ -1,0 +1,62 @@
+server:
+  port: 8001
+  servlet:
+    context-path: /admin-server
+
+spring:
+  application:
+    name: admin-server # 应用名称也是构成 Nacos 配置管理 dataId 字段的一部分 (当 config.prefix 为空时)
+  # 开启登录认证功能
+  security:
+    user:
+      name: admin
+      password: admin
+  cloud:
+    nacos:
+      # 服务注册发现
+      discovery:
+        enabled: true # 如果不想使用 Nacos 进行服务注册和发现, 设置为 false 即可
+        server-addr: 127.0.0.1:8848
+        # server-addr: 127.0.0.1:8848,127.0.0.1:8849,127.0.0.1:8850 # Nacos 服务器地址
+        namespace: 992d5d9f-964c-4d55-a8c7-9a4e38fa3d07
+        metadata:
+          management:
+            context-path: ${server.servlet.context-path}/actuator
+          user.name: admin
+          user.password: admin
+  thymeleaf:
+    check-template: false
+    check-template-location: false
+
+  # 被监控的应用状态变更为 DOWN、OFFLINE、UNKNOWN 时, 会自动发出告警: 实例的状态、原因、实例地址等信息
+  # 需要在 pom.xml 文件中添加 spring-boot-starter-mail 依赖
+  # 配置发送告警的邮箱服务器
+  # 但是, 这个要能连接上, 否则会报错
+  mail:
+    host: smtp.163.com # 网易邮箱地址
+    username: xutao001225@163.com # 个人邮箱地址
+    password: RINSVUBTSSPKDMHK # 授权码
+    from: xutao001225@163.com # 自定义配置发件人
+    default-encoding: UTF-8
+    properties:
+      mail.smtp.starttls.enable: true
+      mail.smtp.starttls.required: true
+      mail.smtp.ssl.enable: true
+#  # 监控告警通知
+#  boot:
+#    admin:
+#      notify:
+#        mail:
+#          from: ${spring.mail.username}
+#          to: qinyi@imooc.com
+#          cc: qinyi@imooc.com
+
+# 暴露端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always

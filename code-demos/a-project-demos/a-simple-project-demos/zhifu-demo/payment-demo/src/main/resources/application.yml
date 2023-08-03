@@ -1,0 +1,22 @@
+server:
+  port: 9090
+
+spring:
+  application:
+    name: payment
+  datasource:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql:///payment?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false
+      username: root
+      password: 123456
+      hikari:
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+        idle-timeout: 500000
+        max-lifetime: 540000
+        maximum-pool-size: 20
+        minimum-idle: 10
+
+logging:
+  pattern:
+    console: logging.pattern.console=%d{MM/dd HH:mm:ss.SSS} %clr(%-5level) ---  [%-15thread] %cyan(%-50logger{50}):%msg%n

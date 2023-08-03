@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="60 seconds" debug="false">
+    <!-- 使用springProperty标签引用application.yml的属性 -->
+    <springProperty scope="context" name="app_name" source="spring.application.name"/>
+    <property name="LOG_HOME" value="${user.dir}/log"/>
+
+    <property name="pattern-console-color"
+              value="%green(%d{yyyy-MM-dd HH:mm:ss.SSS}) [%thread] %highlight(%-5level) %red(%logger{50}) - %yellow(%msg) %n"/>
+    <property name="pattern-file" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n"/>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- 过滤低于阈值级别的事件。级别低于指定级别的事件将被拒绝，而级别等于或高于指定级别的事件将触发 FilterReply -->
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>debug</level>
+        </filter>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <Pattern>${pattern-console-color}</Pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <appender name="FILE_APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_HOME}/debug/${app_name}.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>${pattern-file}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_HOME}/debug/${app_name}-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <maxFileSize>100MB</maxFileSize>
+            <maxHistory>30</maxHistory>
+            <totalSizeCap>100MB</totalSizeCap>
+        </rollingPolicy>
+<!--        <filter class="ch.qos.logback.classic.filter.LevelFilter">-->
+<!--            <level>debug</level>-->
+<!--            <onMatch>ACCEPT</onMatch>-->
+<!--            <onMismatch>DENY</onMismatch>-->
+<!--        </filter>-->
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE_APPENDER"/>
+    </root>
+
+    <logger name="org.example" level="debug" additivity="false">
+        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="FILE_APPENDER"/>
+    </logger>
+    
+    <logger name="de.codecentric.boot.admin.server" level="debug" additivity="false">
+        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="FILE_APPENDER"/>
+    </logger>
+
+    <logger name="com.alibaba.cloud" level="debug" additivity="false">
+        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="FILE_APPENDER"/>
+    </logger>
+    <logger name="com.alibaba.nacos" level="debug" additivity="false">
+        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="FILE_APPENDER"/>
+    </logger>
+
+    <!-- 关闭指定包的日志输出 -->
+    <logger name="org.springframework" level="INFO"/>
+
+    <!-- show parameters for hibernate sql 专为 Hibernate 定制 -->
+    <logger name="org.hibernate.type.descriptor.sql.BasicBinder" level="TRACE" />
+    <logger name="org.hibernate.type.descriptor.sql.BasicExtractor" level="DEBUG" />
+    <logger name="org.hibernate.SQL" level="DEBUG" />
+    <logger name="org.hibernate.engine.QueryParameters" level="DEBUG" />
+    <logger name="org.hibernate.engine.query.HQLQueryPlan" level="DEBUG" />
+
+    <!--mybatis log configure-->
+    <logger name="com.apache.ibatis" level="TRACE"/>
+    <logger name="java.sql.Connection" level="DEBUG"/>
+    <logger name="java.sql.Statement" level="DEBUG"/>
+    <logger name="java.sql.PreparedStatement" level="DEBUG"/>
+
+</configuration>
