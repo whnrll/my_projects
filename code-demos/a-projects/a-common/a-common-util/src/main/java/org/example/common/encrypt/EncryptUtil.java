@@ -23,7 +23,6 @@ import org.slf4j.LoggerFactory;
  */
 @SuppressWarnings("restriction")
 public class EncryptUtil {
-
     private static final Logger logger = LoggerFactory.getLogger(EncryptUtil.class);
 
 

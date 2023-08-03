@@ -13,7 +13,8 @@
     <packaging>pom</packaging>
     <modules>
         <module>a-gateway</module>
-        <module>stock-trade-system</module>
+        <module>a-micro-driver</module>
+        <module>a-micro-order</module>
     </modules>
 
 

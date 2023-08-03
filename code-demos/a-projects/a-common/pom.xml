@@ -11,12 +11,9 @@
     <artifactId>a-common</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>a-common-service</module>
+        <module>a-common-util</module>
         <module>a-common-web</module>
-        <module>a-common-starter</module>
-        <module>a-common-starter/a-common-starter-swagger</module>
-        <module>a-common-starter/a-common-starter-ceph</module>
-        <module>a-common-starter/a-common-starter-oauth2</module>
+        <module>a-common-service</module>
         <module>a-common-generator</module>
     </modules>
 
