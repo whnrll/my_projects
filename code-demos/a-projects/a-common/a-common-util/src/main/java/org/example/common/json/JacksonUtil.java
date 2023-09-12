@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Objects;
 
-import com.google.gson.JsonSerializer;
+import com.fasterxml.jackson.databind.*;
 import org.apache.commons.lang3.StringUtils;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
